@@ -1,0 +1,237 @@
+:root {
+  --bg: #0f1419;
+  --card: #1a222c;
+  --card2: #222b36;
+  --text: #f2f4f7;
+  --muted: #9aa3ad;
+  --line: #2c3642;
+  --ok: #3dd68c;
+  --warn: #f5a524;
+  --danger: #f31260;
+  --accent: #3b82f6;
+  --radius: 14px;
+  --font: "PingFang HK", "Noto Sans TC", "Helvetica Neue", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
+}
+body { min-height: 100dvh; }
+
+.app {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 16px 16px 48px;
+}
+
+header.app-header {
+  margin-bottom: 14px;
+}
+header h1 {
+  font-size: 1.35rem;
+  margin: 0 0 4px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+header .tagline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+button, select {
+  font: inherit;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+  padding: 10px 14px;
+}
+button {
+  cursor: pointer;
+  background: var(--accent);
+  border-color: transparent;
+  font-weight: 600;
+}
+button.secondary {
+  background: var(--card2);
+  border-color: var(--line);
+}
+button:disabled { opacity: 0.55; cursor: wait; }
+select {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
+.geo-status {
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--line);
+  font-size: 0.92rem;
+  margin-bottom: 12px;
+}
+.geo-status.ok { border-color: color-mix(in srgb, var(--ok) 50%, var(--line)); }
+.geo-status.warn { border-color: color-mix(in srgb, var(--warn) 55%, var(--line)); }
+.geo-status.info { border-color: var(--line); }
+
+.station-panel {
+  background: linear-gradient(160deg, var(--card) 0%, #151b22 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.station-panel h2#stationTitle {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+}
+.station-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--c, #666) 22%, transparent);
+  color: var(--text);
+  border: 1px solid color-mix(in srgb, var(--c, #666) 55%, transparent);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.chip::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c, #666);
+}
+.dist, .note {
+  padding-left: 4px;
+}
+
+#delayBanner {
+  background: color-mix(in srgb, var(--danger) 18%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--danger) 50%, var(--line));
+  color: #ffb4c7;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.line-block {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--c, #666);
+  border-radius: var(--radius);
+  padding: 12px 12px 6px;
+  margin-bottom: 12px;
+}
+.line-block h2 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.line-block .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c, #666);
+  display: inline-block;
+}
+.err-tag {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--danger);
+  font-weight: 600;
+}
+.dir {
+  margin: 10px 0 6px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.train-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.train-card {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 10px;
+  border-radius: 12px;
+  background: var(--card2);
+  margin-bottom: 8px;
+}
+.train-card.imminent {
+  outline: 1px solid color-mix(in srgb, var(--ok) 55%, transparent);
+  background: color-mix(in srgb, var(--ok) 10%, var(--card2));
+}
+.mins {
+  flex: 0 0 auto;
+  min-width: 5.2rem;
+  text-align: center;
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.train-card.imminent .mins { color: var(--ok); }
+.train-meta .dest { font-size: 1rem; }
+.train-meta .sub {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 2px;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 0.92rem;
+  padding: 8px 2px 12px;
+}
+#etaRoot.loading { opacity: 0.65; }
+
+.footer-meta {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 8px;
+  text-align: center;
+}
+.hint {
+  margin-top: 18px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
