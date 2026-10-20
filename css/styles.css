@@ -56,6 +56,13 @@ header .tagline {
   font-size: 0.9rem;
   font-weight: 600;
 }
+header .creator {
+  margin: 8px 0 0;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 800;
+  opacity: 0.85;
+}
 
 .toolbar {
   display: flex;
